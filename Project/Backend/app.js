@@ -10,6 +10,8 @@ const chatRoutes = require("./routes/chat.routes");
 const reportRoutes = require("./routes/report.routes");
 const ruleRoutes = require("./routes/rule.routes");
 const performanceRoutes = require("./routes/performance.routes");
+const milestoneRoutes = require("./routes/milestone.routes");
+
 
 
 
@@ -28,6 +30,7 @@ app.use("/api/chat", chatRoutes);
 app.use("/api/reports", reportRoutes);
 app.use("/api/rules", ruleRoutes);
 app.use("/api/performance", performanceRoutes);
+app.use("/api/milestones", milestoneRoutes);
 
 app.get("/", (req, res) => {
     res.json({
