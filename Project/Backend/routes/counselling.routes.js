@@ -4,7 +4,8 @@ const {
     createCounselling,
     getCounsellingByBeneficiary,
     getCounsellingById,
-    updateCounselling
+    updateCounselling,
+    markAttendance
 } = require("../controllers/counselling.controller");
 
 const router = express.Router();
@@ -19,5 +20,8 @@ router.get(
 router.get("/:id", getCounsellingById);
 
 router.put("/:id", updateCounselling);
+
+router.patch("/:id/attendance", markAttendance);
+
 
 module.exports = router;

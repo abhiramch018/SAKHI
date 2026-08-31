@@ -41,10 +41,29 @@ const updateCounselling = async (id, data) => {
 
     return counselling;
 };
+const markAttendance = async (id) => {
+    const counselling = await Counselling.findByIdAndUpdate(
+        id,
+        {
+            attendance: true,
+            status: "COMPLETED"
+        },
+        {
+            new: true,
+            runValidators: true
+        }
+    );
 
+    if (!counselling) {
+        throw new Error("Counselling session not found");
+    }
+
+    return counselling;
+};
 module.exports = {
     createCounselling,
     getCounsellingByBeneficiary,
     getCounsellingById,
-    updateCounselling
+    updateCounselling,
+    markAttendance
 };
