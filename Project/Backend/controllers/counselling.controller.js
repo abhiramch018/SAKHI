@@ -74,10 +74,28 @@ const updateCounselling = async (req, res) => {
         });
     }
 };
+const markAttendance = async (req, res) => {
+    try {
+        const counselling =
+            await counsellingService.markAttendance(req.params.id);
+
+        res.status(200).json({
+            success: true,
+            message: "Attendance marked successfully",
+            data: counselling
+        });
+    } catch (error) {
+        res.status(404).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
 
 module.exports = {
     createCounselling,
     getCounsellingByBeneficiary,
     getCounsellingById,
-    updateCounselling
+    updateCounselling,
+    markAttendance
 };
