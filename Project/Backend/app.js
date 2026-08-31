@@ -5,6 +5,7 @@ const awwRoutes = require("./routes/aww.routes");
 const beneficiaryRoutes = require("./routes/beneficiary.routes");
 const counsellingRoutes = require("./routes/counselling.routes");
 const decisionTreeRoutes = require("./routes/decisionTree.routes");
+const aiRoutes = require("./routes/ai.routes");
 
 
 
@@ -17,6 +18,7 @@ app.use("/api/awws", awwRoutes);
 app.use("/api/beneficiaries", beneficiaryRoutes);
 app.use("/api/counselling", counsellingRoutes);
 app.use("/api/decision-tree", decisionTreeRoutes);
+app.use("/api/ai", aiRoutes);
 
 app.get("/", (req, res) => {
     res.json({
