@@ -3,6 +3,8 @@ const cors = require("cors");
 
 const awwRoutes = require("./routes/aww.routes");
 const beneficiaryRoutes = require("./routes/beneficiary.routes");
+const counsellingRoutes = require("./routes/counselling.routes");
+
 
 const app = express();
 
@@ -11,6 +13,7 @@ app.use(express.json());
 
 app.use("/api/awws", awwRoutes);
 app.use("/api/beneficiaries", beneficiaryRoutes);
+app.use("/api/counselling", counsellingRoutes);
 
 app.get("/", (req, res) => {
     res.json({
