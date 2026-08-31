@@ -15,6 +15,8 @@ const learningRoutes = require("./routes/learning.routes");
 const adminRoutes = require("./routes/admin.routes");
 const authRoutes = require("./routes/auth.routes");
 const authRoutes = require("./routes/auth.routes");
+const otpRoutes = require("./routes/otp.routes");
+
 
 const app = express();
 
@@ -33,6 +35,7 @@ app.use("/api/performance", performanceRoutes);
 app.use("/api/milestones", milestoneRoutes);
 app.use("/api/learning", learningRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/otp", otpRoutes);
 app.use("/api/auth", authRoutes);           
 app.get("/", (req, res) => {
     res.json({
