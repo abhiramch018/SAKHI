@@ -7,6 +7,8 @@ const counsellingRoutes = require("./routes/counselling.routes");
 const decisionTreeRoutes = require("./routes/decisionTree.routes");
 const aiRoutes = require("./routes/ai.routes");
 const chatRoutes = require("./routes/chat.routes");
+const reportRoutes = require("./routes/report.routes");
+
 
 
 
@@ -21,6 +23,7 @@ app.use("/api/counselling", counsellingRoutes);
 app.use("/api/decision-tree", decisionTreeRoutes);
 app.use("/api/ai", aiRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/reports", reportRoutes);
 
 app.get("/", (req, res) => {
     res.json({
