@@ -11,6 +11,8 @@ const reportRoutes = require("./routes/report.routes");
 const ruleRoutes = require("./routes/rule.routes");
 const performanceRoutes = require("./routes/performance.routes");
 const milestoneRoutes = require("./routes/milestone.routes");
+const learningRoutes = require("./routes/learning.routes");
+
 
 
 
@@ -31,6 +33,7 @@ app.use("/api/reports", reportRoutes);
 app.use("/api/rules", ruleRoutes);
 app.use("/api/performance", performanceRoutes);
 app.use("/api/milestones", milestoneRoutes);
+app.use("/api/learning", learningRoutes);
 
 app.get("/", (req, res) => {
     res.json({
