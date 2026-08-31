@@ -14,7 +14,7 @@ const milestoneRoutes = require("./routes/milestone.routes");
 const learningRoutes = require("./routes/learning.routes");
 const adminRoutes = require("./routes/admin.routes");
 const authRoutes = require("./routes/auth.routes");
-const authRoutes = require("./routes/auth.routes");
+//const authRoutes = require("./routes/auth.routes");
 const otpRoutes = require("./routes/otp.routes");
 
 
