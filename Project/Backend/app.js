@@ -12,12 +12,7 @@ const ruleRoutes = require("./routes/rule.routes");
 const performanceRoutes = require("./routes/performance.routes");
 const milestoneRoutes = require("./routes/milestone.routes");
 const learningRoutes = require("./routes/learning.routes");
-
-
-
-
-
-
+const adminRoutes = require("./routes/admin.routes");
 const app = express();
 
 app.use(cors());
@@ -34,7 +29,7 @@ app.use("/api/rules", ruleRoutes);
 app.use("/api/performance", performanceRoutes);
 app.use("/api/milestones", milestoneRoutes);
 app.use("/api/learning", learningRoutes);
-
+app.use("/api/admin", adminRoutes);
 app.get("/", (req, res) => {
     res.json({
         message: "AWW Counselling Platform API is running"
