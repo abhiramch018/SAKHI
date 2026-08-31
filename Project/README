@@ -1,0 +1,26 @@
+# AWW Counselling Platform
+
+A MERN-based platform designed to support Anganwadi Workers (AWWs) in counselling pregnant women.
+
+## Core Flow
+
+AWW → Beneficiary → Counselling Form → Decision Tree → AI Guidance → Counselling → Attendance → Report → Admin Monitoring
+
+## Main Modules
+
+- AWW Management
+- Beneficiary Management
+- Counselling
+- Decision Tree & Rules
+- AI Assistance
+- Reports
+- Learning Path
+- Performance & Milestones
+- Admin Management
+
+## Tech Stack
+
+- Frontend: React
+- Backend: Node.js + Express
+- Database: MongoDB
+- AI: AI/Voice Assistant
