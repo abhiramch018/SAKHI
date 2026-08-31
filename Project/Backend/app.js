@@ -6,6 +6,7 @@ const beneficiaryRoutes = require("./routes/beneficiary.routes");
 const counsellingRoutes = require("./routes/counselling.routes");
 const decisionTreeRoutes = require("./routes/decisionTree.routes");
 const aiRoutes = require("./routes/ai.routes");
+const chatRoutes = require("./routes/chat.routes");
 
 
 
@@ -19,6 +20,7 @@ app.use("/api/beneficiaries", beneficiaryRoutes);
 app.use("/api/counselling", counsellingRoutes);
 app.use("/api/decision-tree", decisionTreeRoutes);
 app.use("/api/ai", aiRoutes);
+app.use("/api/chat", chatRoutes);
 
 app.get("/", (req, res) => {
     res.json({
