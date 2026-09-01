@@ -1,35 +1,43 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const otpService = require("./otp.service");
 
 const register = async (data) => {
-    const { name, email, password, role } = data;
+    const { name, email, phone, password, role } = data;
 
-    const existingUser = await User.findOne({ email });
+    if (!name || !email || !phone || !password) {
+        throw new Error("Name, email, phone, and password are required");
+    }
+
+    if (role === "ADMIN") {
+        throw new Error("Admin accounts cannot be registered publicly");
+    }
+
+    const normalizedEmail = email.toLowerCase().trim();
+
+    const existingUser = await User.findOne({ email: normalizedEmail });
 
     if (existingUser) {
         throw new Error("User already exists");
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const passwordHash = await bcrypt.hash(password, 10);
 
-    const user = await User.create({
-        name,
-        email,
-        password: hashedPassword,
-        role: role || "AWW"
+    await otpService.sendRegistrationOTP({
+        email: normalizedEmail,
+        name: name.trim(),
+        phone: phone.trim(),
+        passwordHash
     });
 
     return {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role
+        email: normalizedEmail
     };
 };
 
 const login = async (email, password) => {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: email.toLowerCase().trim() });
 
     if (!user) {
         throw new Error("Invalid email or password");
@@ -61,6 +69,7 @@ const login = async (email, password) => {
             id: user._id,
             name: user.name,
             email: user.email,
+            phone: user.phone,
             role: user.role
         }
     };

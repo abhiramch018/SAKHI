@@ -2,6 +2,7 @@ const express = require("express");
 
 const {
     createCounselling,
+    getCounsellingEligibility,
     getCounsellingByBeneficiary,
     getCounsellingById,
     updateCounselling,
@@ -11,6 +12,11 @@ const {
 const router = express.Router();
 
 router.post("/", createCounselling);
+
+router.get(
+    "/beneficiary/:beneficiaryId/eligibility",
+    getCounsellingEligibility
+);
 
 router.get(
     "/beneficiary/:beneficiaryId",

@@ -11,7 +11,29 @@ const createCounselling = async (req, res) => {
             data: counselling
         });
     } catch (error) {
-        res.status(400).json({
+        const status = error.code === "COOLDOWN" || error.code === "IN_PROGRESS" ? 403 : 400;
+        res.status(status).json({
+            success: false,
+            message: error.message,
+            code: error.code,
+            details: error.details
+        });
+    }
+};
+
+const getCounsellingEligibility = async (req, res) => {
+    try {
+        const eligibility =
+            await counsellingService.checkCounsellingEligibility(
+                req.params.beneficiaryId
+            );
+
+        res.status(200).json({
+            success: true,
+            data: eligibility
+        });
+    } catch (error) {
+        res.status(500).json({
             success: false,
             message: error.message
         });
@@ -94,6 +116,7 @@ const markAttendance = async (req, res) => {
 
 module.exports = {
     createCounselling,
+    getCounsellingEligibility,
     getCounsellingByBeneficiary,
     getCounsellingById,
     updateCounselling,

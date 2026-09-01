@@ -40,6 +40,22 @@ const reportSchema = new mongoose.Schema(
         reportDate: {
             type: Date,
             default: Date.now
+        },
+
+        beneficiaryFeedback: {
+            rating: {
+                type: Number,
+                min: 1,
+                max: 5
+            },
+            comment: {
+                type: String,
+                trim: true,
+                default: ""
+            },
+            submittedAt: {
+                type: Date
+            }
         }
     },
     {

@@ -17,6 +17,20 @@ const otpSchema = new mongoose.Schema(
         expiresAt: {
             type: Date,
             required: true
+        },
+
+        pendingRegistration: {
+            name: {
+                type: String,
+                trim: true
+            },
+            phone: {
+                type: String,
+                trim: true
+            },
+            passwordHash: {
+                type: String
+            }
         }
     },
     {

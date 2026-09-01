@@ -1,0 +1,31 @@
+{
+  "short_name": "SAKHI",
+  "name": "SAKHI — Community Health Companion",
+  "description": "Counselling support platform for Anganwadi Workers",
+  "icons": [
+    {
+      "src": "/assets/brand/logo-mark.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/brand/logo-mark.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/brand/logo-mark.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "background_color": "#0f766e",
+  "theme_color": "#0f766e",
+  "display": "standalone",
+  "orientation": "portrait"
+}

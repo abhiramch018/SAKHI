@@ -36,11 +36,13 @@ const verifyOTP = async (req, res) => {
             });
         }
 
-        await otpService.verifyOTP(email, otp);
+        const result = await otpService.verifyOTP(email, otp);
 
         res.status(200).json({
             success: true,
-            message: "OTP verified successfully"
+            message: result.registrationCompleted
+                ? "Registration completed successfully"
+                : "OTP verified successfully"
         });
     } catch (error) {
         res.status(400).json({
